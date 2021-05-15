@@ -2,6 +2,8 @@
 // RT64
 //
 
+#ifndef RT64_MINIMAL
+
 #include "../public/rt64.h"
 
 #include <map>
@@ -1100,3 +1102,5 @@ DLLEXPORT RT64_INSTANCE *RT64_GetViewRaytracedInstanceAt(RT64_VIEW *viewPtr, int
 DLLEXPORT void RT64_DestroyView(RT64_VIEW *viewPtr) {
 	delete (RT64::View *)(viewPtr);
 }
+
+#endif

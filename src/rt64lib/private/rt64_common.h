@@ -77,6 +77,10 @@ namespace RT64 {
 		ViewParams
 	};
 
+	// Error string for last error or exception that was caught.
+	extern std::string GlobalLastError;
+
+#ifndef RT64_MINIMAL
 	class AllocatedResource {
 	private:
 		D3D12MA::Allocation *d3dMaAllocation;
@@ -221,9 +225,7 @@ namespace RT64 {
 		rowPadding = (rowWidth % RowMultiple) ? RowMultiple - (rowWidth % RowMultiple) : 0;
 		rowWidth += rowPadding;
 	}
-
-	// Error string for last error or exception that was caught.
-	extern std::string GlobalLastError;
+#endif
 };
 
 #define D3D12_CHECK( call )                                                         \
@@ -246,7 +248,7 @@ namespace RT64 {
 		fprintf(stderr, "%s\n", e.what());				\
 	}
 
-
+#ifndef RT64_MINIMAL
 namespace nv_helpers_dx12
 {
 #ifndef ROUND_UP
@@ -255,3 +257,4 @@ namespace nv_helpers_dx12
 
 	ID3D12DescriptorHeap* CreateDescriptorHeap(ID3D12Device* device, uint32_t count, D3D12_DESCRIPTOR_HEAP_TYPE type, bool shaderVisible);
 }
+#endif
