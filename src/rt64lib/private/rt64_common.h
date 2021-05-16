@@ -41,6 +41,7 @@ namespace RT64 {
 		gHitDistance,
 		gHitColor,
 		gHitNormal,
+		gHitSpecular,
 		gHitInstanceId,
 		gBackground,
 		SceneBVH,
@@ -58,6 +59,7 @@ namespace RT64 {
 		gHitDistance,
 		gHitColor,
 		gHitNormal,
+		gHitSpecular,
 		gHitInstanceId
 	};
 
